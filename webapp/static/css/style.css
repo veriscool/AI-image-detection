@@ -179,6 +179,56 @@ html, body {
   cursor: pointer;
 }
 
+.samples-container {
+  text-align: center;
+  margin: 10px auto 40px;
+}
+
+.samples-heading {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 14px;
+}
+
+.samples-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.sample-thumb {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+}
+
+.sample-thumb img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: 0.3s ease;
+}
+
+.sample-thumb:hover img {
+  border-color: #00ffff;
+  box-shadow: 0 0 12px #00ffff;
+}
+
+.sample-thumb:hover {
+  color: #00ffff;
+}
+
 .prediction-box {
   background-color: rgba(255, 255, 255, 0.1); /* semi-transparent white */
   border: 2px solid #00ffff; /* bright border (you can change color) */

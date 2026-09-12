@@ -36,6 +36,20 @@
         </form>
     </div>
 
+    {% if samples %}
+    <div class="samples-container">
+        <p class="samples-heading">Or try a sample image &mdash; one click, no upload. Labels show the intended class.</p>
+        <div class="samples-grid">
+            {% for s in samples %}
+            <a class="sample-thumb" href="{{ url_for('result_sample', path=s.rel_path) }}">
+                <img src="{{ url_for('sample_image', relpath=s.rel_path) }}" alt="{{ s.label }}" loading="lazy">
+                <span>{{ s.label }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
     <script>
         function previewImage(event) {
             const input = event.target;
