@@ -1,0 +1,12 @@
+# Core (inference + web app)
+torch>=2.2
+torchvision>=0.17
+Pillow>=10.0
+numpy>=1.24
+Flask>=3.0
+Werkzeug>=3.0
+
+# Training / notebooks
+tqdm>=4.66
+matplotlib>=3.7
+pandas>=2.0

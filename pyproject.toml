@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-image-detector"
+version = "1.0.0"
+description = "A compact CNN that classifies images as AI-generated or human-made, with a Flask demo app."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "torch>=2.2",
+    "torchvision>=0.17",
+    "Pillow>=10.0",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+train = ["tqdm>=4.66", "matplotlib>=3.7", "pandas>=2.0"]
+web = ["Flask>=3.0", "Werkzeug>=3.0"]
+
+[project.scripts]
+ai-detect = "ai_image_detector.predict:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

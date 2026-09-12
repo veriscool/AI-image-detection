@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prediction Result</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="AI Image Detector logo" width="110" height="50">
+        </div>
+    </div>
+
+    <div class="title2">
+        <h1>Result</h1>
+    </div>
+
+    <div class="prediction-box">
+        <h2>{{ prediction }}</h2>
+    </div>
+
+    <div style="text-align: center;">
+        <img src="{{ image_url }}" alt="Uploaded image" style="max-width: 300px; margin-bottom: 20px;">
+        <h2>{{ class_names[0] }}: {{ ai_score }} &nbsp;&nbsp; {{ class_names[1] }}: {{ human_score }}</h2>
+        <style>
+            #resultChart { max-width: 300px; max-height: 300px; margin: 0 auto; display: block; }
+        </style>
+        <canvas id="resultChart" width="300" height="300"></canvas>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+        <a href="{{ url_for('index') }}" class="home-button">Check another image</a>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('resultChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['{{ class_names[0] }}', '{{ class_names[1] }}'],
+                datasets: [{
+                    label: 'Prediction',
+                    data: [{{ ai_score }}, {{ human_score }}],
+                    backgroundColor: ['#542CFA', '#228C22']
+                }]
+            },
+            options: {
+                events: [],
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { labels: { color: 'white' } },
+                    tooltip: { enabled: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

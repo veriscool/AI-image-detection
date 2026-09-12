@@ -1,0 +1,37 @@
+# ---- Model weights ----------------------------------------------------------
+# Checkpoints are large and numerous; keep only the one production model.
+*.pth
+!models/ai_image_detector.pth
+Model/
+
+# ---- Datasets --------------------------------------------------------------
+Data_v2.zip
+*.zip
+data/
+raw/
+*.lst
+
+# ---- Uploaded images (runtime) -------------------------------------------
+webapp/static/uploads/*
+!webapp/static/uploads/.gitkeep
+
+# ---- Python --------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ---- Tooling / OS ------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- Reports (generated) ---------------------------------------------
+reports/confusion_matrix.png
