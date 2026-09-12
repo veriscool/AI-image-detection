@@ -36,3 +36,5 @@ Thumbs.db
 # ---- Reports (generated) ---------------------------------------------
 reports/confusion_matrix.png
 CLAUDE.md
+CLAUDE.local.md
+.claude/
